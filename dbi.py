@@ -1,8 +1,9 @@
 # debugging interface module
 # script by Denver P.
-# Conception: 14-03-2018
-# r1: 2018-03-14
-# r2: 2018-03-19
+# Conception: 2017-??-??
+# r1: 2018-03-14-??-??
+# r2: 2018-03-19-12:00
+# r3: 2018-03-19-23:59
 
 # import necessary modules
 import datetime
@@ -72,7 +73,7 @@ def dbi(db,min_verb,*args):
 
                     try:
                         to_eval = this_arg[7:].split(".")
-                        print(to_eval,end='',flush=True)
+                        if(print_executions): print(to_eval,end='',flush=True)
                         demo_tools = __import__(to_eval[0],globals(),locals())
                         eval(str(demo_tools.__name__) + "." + to_eval[1])
                     except:
@@ -95,15 +96,10 @@ if(runThisTest):
     def sleepyboi(dur):
         sleep(dur)
 
-    tempVar = False
-    def change():
-        global tempVar
-        tempVar = not tempVar
-
     db = {'debug_active': True, 'verbosity_level': 3}
     
     print("tempVar: ",tempVar)
-    dbi(db,1,"testing level 1 verb...","doing it...",'!EXEC!:change()',"done!","finished!")
+    dbi(db,1,"testing level 1 verb...","doing it...",'!EXEC!:demo_tools.tempVar','!EXEC!:demo_tools.change()',"done!","finished!")
     print("tempVar: ",tempVar)
     dbi(db,2,"testing level 2 verb...","doing it...",'!EXEC!:sleepyboi(1)',"done!","finished!")
     dbi(db,3,"testing level 3 verb...","doing it...",'!EXEC!:sleepyboi(1)',"done!","finished!")
