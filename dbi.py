@@ -8,7 +8,10 @@
 import datetime
 import sys
 import time
-from colorThis import ct
+
+# import extra modules
+importExtra = True
+if(importExtra): from colorThis import ct
 
 # set necessary variables
 now = datetime.datetime.now
