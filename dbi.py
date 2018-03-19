@@ -1,12 +1,14 @@
 # debugging interface module
 # script by Denver P.
 # Conception: 14-03-2018
-# Revision 001: 14-03-2018
+# r1: 2018-03-14
+# r2: 2018-03-19
 
 # import necessary modules
 import datetime
 import sys
 import time
+from colorThis import ct
 
 # set necessary variables
 now = datetime.datetime.now
@@ -41,7 +43,7 @@ def dbi(db,min_level,*args):
 
 ## do an 'in-script test'
 # whether to run the test
-runThisTest = False
+runThisTest = True
 # body of code for test
 if(runThisTest):
     test = {'bool': True}
