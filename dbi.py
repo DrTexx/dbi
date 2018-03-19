@@ -97,6 +97,7 @@ if(runThisTest):
         sleep(dur)
 
     db = {'debug_active': True, 'verbosity_level': 3}
+    tempVar = False
     
     print("tempVar: ",tempVar)
     dbi(db,1,"testing level 1 verb...","doing it...",'!EXEC!:demo_tools.tempVar','!EXEC!:demo_tools.change()',"done!","finished!")
