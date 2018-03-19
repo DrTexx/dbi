@@ -6,10 +6,8 @@
 
 # import necessary modules
 import datetime
-import importlib
 from time import sleep
 from colorThis import ct
-from imp import new_module
 
 # import extra modules
 
