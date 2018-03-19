@@ -2,7 +2,7 @@
 
 # attempt to import colorama, otherwise raise an exception
 try: import colorama # library used for colouring
-except: raise Exception("Can't import colorama. Maybe it isn't installed? Maybe you're running 64-bit instead of 32-bit?")
+except: print("Can't import colorama. Maybe it isn't installed? Maybe you're running 64-bit instead of 32-bit?")
 # try to fix the escape sequences so they work in windows 10 console
 try:
     import os # used to allow win32 console to recognize ANSI/VT100 escape sequences
@@ -28,8 +28,8 @@ def ct(string,**kwargs): # define main function
         output = "".join(tempString) # convert the output array into a string
         return(output)
     except: # if function did not run as intended, return the string without formatting
-        print("something went wrong while running colorThis.ct()...")
-        print("returning a normal string...")
+        if (debug): print("something went wrong while running colorThis.ct()...")
+        if (debug): print("returning a normal string...")
         return(string)
 
 #print(ct("hello",Back="RED"))
