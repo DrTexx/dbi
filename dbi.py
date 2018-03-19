@@ -6,8 +6,10 @@
 
 # import necessary modules
 import datetime
+import importlib
 from time import sleep
 from colorThis import ct
+from imp import new_module
 
 # import extra modules
 
@@ -16,10 +18,28 @@ now = datetime.datetime.now
 
 # define functions
 def dbi(db,min_verb,*args):
+    '''
+    In-line functions will fail to execute if they are not accessible within the scope of THIS script.
+    Thus if a function is defined in a script that imports this module, the function may not work correctly unless:
+    1 ) the function is incorporated into the code of dbi
+    2 ) the function can be carried over to dbi through [relative module name to import].[function to run] executions
+    3 ) the function becomes incorporated into the code of dbi in the future
+    4 ) an alternative method is found which allows dbi to see other functions in the script which imported it
+    
+    EXAMPLE: dbi(db,2,"RUNNING...","!EXEC!:demo_tools.sf1()","DONE!")
+    If the verbosity_level listed in db is >= 2, then
+    1 -> the string "RUNNING..." will be printed to the terminal line, then
+    2 -> !EXEC!:demo_tools.sf1 will be split up into parts
+    3 -> !EXEC!: will be recognized as a executable flag, so
+    4 -> the function will attempt to import the module demo_tools, then
+    5 -> the function will attempt to execute the module sf1(), once execution is completed
+    6 -> the "DONE!" string will be printed    
+    
+    '''
     print_executions = False
     verb = str(db['verbosity_level'])
     req_verb = min_verb
-    
+        
     if(db['debug_active'] and db['verbosity_level'] >= req_verb): # check debug is True and level is okay
         arg_list = [item for item in args]
         prefixes = {'1': {'name': "1", 'style': 'GREEN'},
@@ -51,8 +71,12 @@ def dbi(db,min_verb,*args):
 
                 if(this_arg[:7] == "!EXEC!:"): # if this item has an execution flag
                     if(print_executions): print(this_arg,end='',flush=True)
+
                     try:
-                        eval(this_arg[7:]) # try executing it
+                        to_eval = this_arg[7:].split(".")
+                        print(to_eval,end='',flush=True)
+                        demo_tools = __import__(to_eval[0],globals(),locals())
+                        eval(str(demo_tools.__name__) + "." + to_eval[1])
                     except:
                         raise Exception("COULDN'T RUN CODE IN DBI!:",str(this_arg[7:])) # otherwise raise an exception
                 
