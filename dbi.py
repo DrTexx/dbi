@@ -1,22 +1,20 @@
 # debugging interface module
 # script by Denver P.
-# Conception: 2017-??-??
-# r1: 2018-03-14-??-??
+# Conception: 2017-??:??
+# r1: 2018-03-14-??:??
 # r2: 2018-03-19-12:00
 # r3: 2018-03-19-23:59
+# r4: 2018-03-20-09:25
 
 # import necessary modules
 import datetime
 from time import sleep
-from colorThis import ct
-
-# import extra modules
+from colorThis import ct # module by myself to adapt colorama to my needs (console colour module)
 
 # set necessary variables
 now = datetime.datetime.now
 
-# define functions
-def dbi(db,min_verb,*args):
+def dbi(db,min_verb,*args): # define core function
     '''
     In-line functions will fail to execute if they are not accessible within the scope of THIS script.
     Thus if a function is defined in a script that imports this module, the function may not work correctly unless:
@@ -35,57 +33,77 @@ def dbi(db,min_verb,*args):
     6 -> the "DONE!" string will be printed    
     
     '''
-    print_executions = False
+    print_exec = False
+    if 'print_exec' in db: print_exec = db['print_exec']
     verb = str(db['verbosity_level'])
     req_verb = min_verb
+    if 'debug_active' and 'verbosity_level' in db:
+        if(db['debug_active'] and db['verbosity_level'] >= req_verb): print_strings = True # check debug is True and level is okay, set var accordingly
+        else: print_strings = False
+    else: raise Exception("passed db dict doesn't contain 'debug_active' and/or 'verbosity_level' key/s")
         
-    if(db['debug_active'] and db['verbosity_level'] >= req_verb): # check debug is True and level is okay
-        arg_list = [item for item in args]
-        prefixes = {'1': {'name': "1", 'style': 'GREEN'},
-                    '2': {'name': "2", 'style': 'YELLOW'},
-                    '3': {'name': "3", 'style': 'RED'}}
-        message_color = prefixes[str(req_verb)]['style']
-        print(
-            "[%s][%s]<=[%s]: " % (
+    arg_list = [item for item in args]
+    prefixes = {'1': {'name': "1", 'style': 'GREEN'},
+                '2': {'name': "2", 'style': 'YELLOW'},
+                '3': {'name': "3", 'style': 'RED'}}
+    message_color = prefixes[str(req_verb)]['style']
+    
+    if(print_strings): # if printing strings
+        print( # print verb levels and time stamp
+            "[%s][%s]<=[%s]: " % ( # format for data using string substitution
                 ct(prefixes[verb]['name'],Fore=prefixes[verb]['style']), # state the parent script's verb level
-                ct(prefixes[str(req_verb)]['name'],Fore=message_color),
+                ct(prefixes[str(req_verb)]['name'],Fore=message_color), # state the verb level required to show this message
                 ct(now().isoformat('T'),Fore=message_color)), # write standard time stamp
-            end='',flush=True) # state the minimum verb level to show this message
-        for i in range(len(arg_list)): # for each arg supplied
-            
-            this_arg = arg_list[i]
-            
-            try:
-                if(i > 0): last_arg = arg_list[i - 1]
-            except: del last_arg
-            else: pass
-            
-            try: next_arg = arg_list[i + 1]
-            except: del next_arg
-            else: pass
-            
-            #print("{i =",i,"}",end='',flush=True)
-                
-            if isinstance(this_arg,str): # if this item is a string
-
-                if(this_arg[:7] == "!EXEC!:"): # if this item has an execution flag
-                    if(print_executions): print(this_arg,end='',flush=True)
-
-                    try:
-                        to_eval = this_arg[7:].split(".")
-                        if(print_executions): print(to_eval,end='',flush=True)
-                        demo_tools = __import__(to_eval[0],globals(),locals())
-                        eval(str(demo_tools.__name__) + "." + to_eval[1])
-                    except:
-                        raise Exception("COULDN'T RUN CODE IN DBI!:",str(this_arg[7:])) # otherwise raise an exception
-                
-                else: # no execution flag
-                    if('last_arg' in locals()): # if there's an item before this
-                        print(" | ",end='',flush=True)
-                    
-                    print(this_arg,end='',flush=True) # print the item
+            end='',flush=True) # stop the print from returning a newline character
+    
+    for i in range(len(arg_list)): # for each argument supplied
         
-        print(ct("",Style='RESET_ALL'))
+        this_arg = arg_list[i]
+        
+        try:
+            if(i > 0): last_arg = arg_list[i - 1]
+        except: del last_arg
+        else: pass
+        
+        try:
+            if(len(arg_list) > 1): next_arg = arg_list[i + 1]
+        except: del next_arg
+        else: pass
+        
+        #print("{i =",i,"}",end='',flush=True)
+        
+        if isinstance(this_arg,str): # if this item is a string
+            
+            if(this_arg[:7] == "!EXEC!:"): # if this item has an execution flag
+                if(print_exec): print(this_arg,end='',flush=True)
+                
+                try:
+                    to_eval = this_arg[7:].split(".")
+                    if(print_exec): print(to_eval,end='',flush=True)
+                    demo_tools = __import__(to_eval[0],globals(),locals())
+                    eval(str(demo_tools.__name__) + "." + to_eval[1])
+                except:
+                    raise Exception("COULDN'T RUN CODE IN DBI!:",str(this_arg[7:])) # otherwise raise an exception
+            
+            else: # no execution flag
+                if(print_strings): # if we're printing strings
+                    if('last_arg' in locals()): # if there's an item before this
+                        print(" | ",end='',flush=True) # print a vertical line character
+                        
+                    print(this_arg,end='',flush=True) # print the item
+    
+    if(print_strings): print(ct("",Style='RESET_ALL')) # print a character to reset all styling, acts as a catch-all
+
+
+
+
+
+
+
+
+
+
+
 
 ## do an 'in-script test'
 # whether to run the test
@@ -95,7 +113,8 @@ if(runThisTest):
     
     def sleepyboi(dur):
         sleep(dur)
-
+        
+    
     db = {'debug_active': True, 'verbosity_level': 3}
     tempVar = False
     
@@ -104,7 +123,7 @@ if(runThisTest):
     print("tempVar: ",tempVar)
     dbi(db,2,"testing level 2 verb...","doing it...",'!EXEC!:sleepyboi(1)',"done!","finished!")
     dbi(db,3,"testing level 3 verb...","doing it...",'!EXEC!:sleepyboi(1)',"done!","finished!")
-
+    
 # if(runThisTest):
 #     print("Without flushing the stdout stream")
 #     for n in range(0,10):
