@@ -22,16 +22,16 @@ def dbi(db,min_level,*args):
         prefixes = {'1': ct("lvl1!",Fore="GREEN"),
                     '2': ct("lvl2!",Fore="YELLOW"),
                     '3': ct("lvl3!",Fore="RED")}
-        al = [item for item in args]
+        arg_list = [item for item in args]
         sys.stdout.write("[%s][%s]: " % (now().isoformat('T'),prefixes[str(db['verbosity_level'])])) # write standard time stamp
-        for i in range(len(al)): # for each argument supplied
+        for i in range(len(arg_list)): # for each argument supplied
             #print("i =",i)
-            if isinstance(al[i],str): # if this arg is a string
-                #print(al[i],"is a string")
-                sys.stdout.write(al[i])
-                if (len(al) - 1 < 0): # if a previous item exists
+            if isinstance(arg_list[i],str): # if this arg is a string
+                #print(arg_list[i],"is a string")
+                sys.stdout.write(arg_list[i])
+                if (len(arg_list) - 1 < 0): # if a previous item exists
                     print("there's an item before this one")
-                    if (isinstance(al[i + 1],str)): # if next arg is a string
+                    if (isinstance(arg_list[i + 1],str)): # if next arg is a string
                         #print("there's another string after this one")
                         sys.stdout.write(" | ")
                     else: # if the next arg isn't a string
@@ -39,8 +39,8 @@ def dbi(db,min_level,*args):
                 else: # this is the last item in the list
                     pass
             else: # if this arg isn't a string
-                #print("is not a string:",al[i])
-                try: al[i] # try executing it
+                #print("is not a string:",arg_list[i])
+                try: arg_list[i] # try executing it
                 except: raise Exception("COULDN'T RUN CODE IN DBI!") # otherwise raise an exception
         print("")
 
