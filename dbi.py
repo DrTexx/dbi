@@ -88,7 +88,8 @@ def dbi(db,min_verb,*args): # define core function
             else: # no execution flag
                 if(print_strings): # if we're printing strings
                     if('last_arg' in locals()): # if there's an item before this
-                        print(" | ",end='',flush=True) # print a vertical line character
+                        if not (i == 1 and last_arg[:7] == "!EXEC!:"): # don't print a vertical line if the prior command was executed
+                            print(" | ",end='',flush=True) # print a vertical line character
                         
                     print(this_arg,end='',flush=True) # print the item
     

@@ -4,8 +4,10 @@ this file contains all functions, variables and imports (variable, function, etc
 """
 from time import sleep # allows for various functions to work involving delays
 import random # allows for RNG function to work
-import test # allows variables to carry over from parent script
 
+#import test # allows variables to carried over from parent script, however, automatically tries to run everything in the script
+
+demo_tools_vars = {} # allows for consistent I/O between commands defined here
 
 def sleepfor(x):
     sleep(x)
@@ -17,8 +19,8 @@ def sf3():
     sleep(3)
     
 def RNG():
-    test.dbi_out['RNG_out'] = random.random()
+    demo_tools_vars['RNG_out'] = random.random()
     
-def printVar():
-    print(test.dbi_out['RNG_out'],end='',flush=True)
+def printRNG():
+    print(demo_tools_vars['RNG_out'],end='',flush=True)
     
