@@ -2,9 +2,9 @@
 ## What is dbi used for?
 Scripts where
 - debugging information only shows when
-    1. debugging is active
-    __and__
-    2. the set level of detail (verbosity) is at least as high as the level specified in the line
+1. debugging is active
+__and__
+2. the set level of detail (verbosity) is at least as high as the level specified in the line
 - verbosity can be modified in advanced
 - verbosity can be modified on-the-fly
 - multiple external functions can be executed in a single-line
