@@ -13,6 +13,8 @@ except: raise Exception("couldn't apply fix for ANSI/VT100 escape sequence recog
 def ct(string,**kwargs): # define main function
     ''' EXAMPLE: ct("hello",Back="RED") '''
     debug=False
+    if 'autoReset' in kwargs: autoReset = kwargs['autoReset']
+    else: autoReset=True
     try: # attempt to run function as intended
         if(debug): print("kwargs:",kwargs)
         tempString = []
@@ -22,8 +24,9 @@ def ct(string,**kwargs): # define main function
             if keyword in kwargs: # if kwarg matches current keyword from list
                 if(debug): print('colorama.%s.%s' % (keyword,kwargs[keyword]))
                 tempString.append(eval('colorama.%s.%s' % (keyword,kwargs[keyword])))
-        tempString.append(str(string)) # append the inputed string to the output list
-        tempString.append(colorama.Style.RESET_ALL) # append a style reset character to the end of the list
+        if not (string == ""): tempString.append(str(string)) # append the inputed string to the output list
+        tempString.append(colorama.Fore.RESET)
+        if(autoReset): tempString.append(colorama.Style.RESET_ALL) # append a style reset character to the end of the list
         if(debug): print(tempString)
         output = "".join(tempString) # convert the output array into a string
         return(output)

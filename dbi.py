@@ -22,14 +22,16 @@ def dbi(db,min_verb,*args):
     
     if(db['debug_active'] and db['verbosity_level'] >= req_verb): # check debug is True and level is okay
         arg_list = [item for item in args]
-        prefixes = {'1': ct("1",Fore="GREEN"),
-                    '2': ct("2",Fore="YELLOW"),
-                    '3': ct("3",Fore="RED")}
+        prefixes = {'1': {'name': "1", 'style': 'GREEN'},
+                    '2': {'name': "2", 'style': 'YELLOW'},
+                    '3': {'name': "3", 'style': 'RED'}}
+        message_color = prefixes[str(req_verb)]['style']
         print(
-            ct("[%s][%s<=%s]: ",Fore="GREEN") % (now().isoformat('T'), # write standard time stamp
-                                prefixes[verb], # state the parent script's verb level
-                                prefixes[str(req_verb)]),
-        end='',flush=True) # state the minimum verb level to show this message
+            "[%s][%s]<=[%s]: " % (
+                ct(prefixes[verb]['name'],Fore=prefixes[verb]['style']), # state the parent script's verb level
+                ct(prefixes[str(req_verb)]['name'],Fore=message_color),
+                ct(now().isoformat('T'),Fore=message_color)), # write standard time stamp
+            end='',flush=True) # state the minimum verb level to show this message
         for i in range(len(arg_list)): # for each arg supplied
             
             this_arg = arg_list[i]
@@ -64,23 +66,23 @@ def dbi(db,min_verb,*args):
 
 ## do an 'in-script test'
 # whether to run the test
-runThisTest = True
+runThisTest = False
 # body of code for test
 if(runThisTest):
     
     def sleepyboi(dur):
         sleep(dur)
 
-    meme = False
+    tempVar = False
     def change():
-        global meme
-        meme = True
+        global tempVar
+        tempVar = not tempVar
 
     db = {'debug_active': True, 'verbosity_level': 3}
     
-    print(meme)
+    print("tempVar: ",tempVar)
     dbi(db,1,"testing level 1 verb...","doing it...",'!EXEC!:change()',"done!","finished!")
-    print(meme)
+    print("tempVar: ",tempVar)
     dbi(db,2,"testing level 2 verb...","doing it...",'!EXEC!:sleepyboi(1)',"done!","finished!")
     dbi(db,3,"testing level 3 verb...","doing it...",'!EXEC!:sleepyboi(1)',"done!","finished!")
 
