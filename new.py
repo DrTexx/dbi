@@ -4,13 +4,8 @@ Created on 19 Mar. 2018
 @author: Denver
 '''
 
+from dbi import dbi
 from time import sleep
-import sys
+db = {'debug_active': True,'verbosity_level': 3}
 
-def print_slowly(text):
-    for c in text:
-        print(c,end=''),
-        sys.stdout.flush()
-        sleep(0.5)
-
-print_slowly('LOA')
+dbi(db,1,"now we'll wait","!EXEC!:sleep(1)","finished waiting!")
