@@ -9,7 +9,7 @@
 # import necessary modules
 import datetime
 from time import sleep
-from colorThis import ct # module by myself to adapt colorama to my needs (console colour module)
+from lib.colorThis import ct # module by myself to adapt colorama to my needs (console colour module)
 
 # set necessary variables
 now = datetime.datetime.now
