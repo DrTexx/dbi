@@ -1,5 +1,5 @@
 # Debug Interface (dbi)
-[dbi logo](docs/dbi_logo.png)
+<img src='docs/dbi_logo.png' height='200'></img>
 ## What is dbi used for?
 Scripts where
 - debugging information only shows when
