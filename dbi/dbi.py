@@ -12,11 +12,7 @@ debugging interface module
 # import necessary modules
 import datetime
 from time import sleep
-<<<<<<< HEAD:dbi/dbi.py
 from colorThis.colorThis import ct # module by myself to adapt colorama to my needs (console colour module)
-=======
-from lib.colorThis import ct # module by myself to adapt colorama to my needs (console colour module)
->>>>>>> master:dbi.py
 
 # set necessary variables
 now = datetime.datetime.now
