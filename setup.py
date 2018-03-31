@@ -185,7 +185,7 @@ setup(
     project_urls={  # Optional
         'Bug Reports': 'https://github.com/DrTexxOfficial/{}/issues'.format(script_name),
 #        'Funding': 'https://donate.pypi.org',
-#        'Say Thanks!': 'http://saythanks.io/to/example',
+#        'Say Thanks!': 'http://saythanks.io/to/demos',
         'Source': 'https://github.com/DrTexxOfficial/{}/'.format(script_name),
     },
 )
