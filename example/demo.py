@@ -4,7 +4,7 @@ Created on 19 Mar. 2018
 @author: Denver
 '''
 
-from dbi import dbi
+from dbi.dbi import dbi
 db = {'debug_active': True,'verbosity_level': 3,'db_imports': ['demo_tools']}
 
 dbi(db,1,"now we'll wait","just for 1 second","!EXEC!:demo_tools.sf1()","finished command!")
