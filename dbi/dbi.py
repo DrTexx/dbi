@@ -1,15 +1,22 @@
-# debugging interface module
-# script by Denver P.
-# Conception: 2017-??:??
-# r1: 2018-03-14-??:??
-# r2: 2018-03-19-12:00
-# r3: 2018-03-19-23:59
-# r4: 2018-03-20-09:25
+"""
+debugging interface module
+ script by Denver P.
+ Conception: 2017-??:??
+ r1: 2018-03-14-??:??
+ r2: 2018-03-19-12:00
+ r3: 2018-03-19-23:59
+ r4: 2018-03-20-09:25
+ r5: 2018-03-31-16:10
+"""
 
 # import necessary modules
 import datetime
 from time import sleep
+<<<<<<< HEAD:dbi/dbi.py
+from colorThis.colorThis import ct # module by myself to adapt colorama to my needs (console colour module)
+=======
 from lib.colorThis import ct # module by myself to adapt colorama to my needs (console colour module)
+>>>>>>> master:dbi.py
 
 # set necessary variables
 now = datetime.datetime.now
