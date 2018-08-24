@@ -2,9 +2,9 @@
 Debug Interface (dbi)
 #####################
 .. image:: docs/dbi_logo.png
-:height: 100px
-:width: 100px
-:alt: dbi logo
+    :height: 100px
+    :width: 100px
+    :alt: dbi logo
 ====================
 Script Functionality
 ====================
