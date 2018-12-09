@@ -45,8 +45,21 @@ Install requirements:
 - console output is colour-coded (based on verbosity levels)
 
 ## What is the purpose?
-My console had become populated by indecernable walls of debugging text, all thanks to riddling my scripts with lines like ``print(str(var),var)`` for debugging.
+My console had become populated by indecernable walls of debugging text, all thanks to riddling my scripts with lines like `print(str(var),var)` for debugging.
 So I created a module to maintain my sanity and save my time.
+
+## Examples
+Initial config:
+```python3
+from dbi import Dbi
+dbi = Dbi(3,True)
+dpm = dbi.print_message
+```
+Generic example:
+```
+[IN ]: dpm(2,"message with","sub-message")
+[OUT]: [3][2]<=[2018-12-10 01:54:59.845995] message with | sub-message
+```
 
 <br/>
 
