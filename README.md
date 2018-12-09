@@ -1,9 +1,9 @@
 | BRANCH  | BUILD STATUS | COVERAGE |
-| ---     | ---          | ---      |
+| ---     | :---:        | :---:    |
 | Master  | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=master)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/master/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) |
 | Develop | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=develop)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/develop/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) |
 
-# Debug Interface (dbi)
+# Debug Interface - DBI
 
 <img src="docs/dbi_logo.png" alt="dbi logo" width="200"/>
 
