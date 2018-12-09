@@ -3,13 +3,35 @@
 | Master  | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=master)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/master/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) | [![GitHub issues](https://img.shields.io/github/issues/DrTexxOfficial/dbi.svg?branch=master)](https://GitHub.com/DrTexxOfficial/dbi/issues/) | [![GitHub pull-requests](https://img.shields.io/github/issues-pr/DrTexxOfficial/dbi.svg?branch=master)](https://GitHub.com/DrTexxOfficial/dbi/pull/) |
 | Develop | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=develop)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/develop/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) | [![GitHub issues](https://img.shields.io/github/issues/DrTexxOfficial/dbi.svg?branch=develop)](https://GitHub.com/DrTexxOfficial/dbi/issues/) | [![GitHub pull-requests](https://img.shields.io/github/issues-pr/DrTexxOfficial/dbi.svg?branch=develop)](https://GitHub.com/DrTexxOfficial/dbi/pull/) |
 
-# Debug Interface - DBI [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+# Debug Interface - DBI 
 
-[![PyPI version fury.io](https://badge.fury.io/py/dbi.svg)](https://pypi.python.org/pypi/dbi/)
+[![PyPI Version](https://img.shields.io/pypi/v/dbi.svg)](https://pypi.python.org/pypi/dbi/)
+[![GitHub release](https://img.shields.io/github/tag/drtexxofficial/dbi.svg)](https://GitHub.com/DrTexxOfficial/dbi/tags/)
 [![GitHub license](https://img.shields.io/github/license/DrTexxOfficial/dbi.svg?branch=master)](https://github.com/DrTexxOfficial/dbi/blob/master/LICENSE)
+[![Github all releases](https://img.shields.io/github/downloads/DrTexxOfficial/dbi/total.svg)](https://GitHub.com/DrTexxOfficial/dbi/releases/)
 
 <img src="docs/dbi_logo.png" alt="dbi logo" width="200"/>
 
+## Installation
+### Install via pip
+Install as user (recommended):
+
+    $ pip3 install dbi --user
+
+Install as root:
+
+    $ sudo pip3 install dbi
+
+### Install from source
+Clone this repository:
+
+    $ git clone https://github.com/DrTexxOfficial/dbi.git
+
+Install requirements:
+
+    $ cd dbi
+    $ pip3 install -r requirements.txt --user
+    
 ## Script Functionality
 ### User-Written Verbosity-Dependant Debug Messages
 - information is only show when A and B are satisfied
@@ -25,5 +47,7 @@
 ## What is the purpose?
 My console had become populated by indecernable walls of debugging text, all thanks to riddling my scripts with lines like ``print(str(var),var)`` for debugging.
 So I created a module to maintain my sanity and save my time.
+
+<br/>
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
