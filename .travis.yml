@@ -5,8 +5,9 @@ python:
   - "3.6-dev"  # 3.6 development branch
   - "3.7-dev"  # 3.7 development branch
 # coverage preperation
-before_script:
-  - pip3 install python-coveralls
+before_install:
+  - pip install pytest pytest-cov
+  - pip install coveralls
 # command to install dependencies
 install:
   - pip3 install -r requirements.txt
@@ -16,3 +17,4 @@ script:
 # coverage testing
 after_success:
   - coveralls
+  
