@@ -15,6 +15,22 @@ from datetime import datetime
 now = datetime.now
 from time import sleep
 
+class Dbi:
+    def __init__(self,init_verb,init_debug):
+        self._verb = init_verb
+        self._debug = init_debug
+    def print_message(self,min_verb,*args): # recommended: Dbi.print_message = dpm
+        #min_verb must be an integer
+        for argument in args:
+            print(argument)
+
+dbi = Dbi(3,True)
+
+dpm = dbi.print_message
+dpm(3,"hello stranger")
+
+
+
 def dbi(db,min_verb,*args): # define core function
     '''
     In-line functions will fail to execute if they are not accessible within the scope of THIS script.
