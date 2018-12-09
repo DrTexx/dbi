@@ -11,6 +11,7 @@ r6: 2018-03-31-17:29
 r7: 2018-03-31-17:40
 """
 
+from colorama import Fore,Back,Style
 from datetime import datetime
 now = datetime.now
 
@@ -18,6 +19,15 @@ class Dbi:
     def __init__(self,init_verb,init_debug):
         self.verb = init_verb
         self.debug = init_debug
+        self._verb_styles = {1: Fore.LIGHTGREEN_EX,
+                             2: Fore.LIGHTYELLOW_EX,
+                             3: Fore.LIGHTRED_EX}
+        self._time_style = Fore.CYAN
+        self._string_seperator = " | "
+    def _style_verb(self,verb):
+        return("{}{}{}".format(self._verb_styles[verb],verb,Style.RESET_ALL))
+    def _style_time(self,time):
+        return("{}{}{}".format(self._time_style,time,Style.RESET_ALL))
     def print_message(self,min_verb,*args): # recommended: Dbi.print_message = dpm
         #min_verb must be an integer
         if type(min_verb) not in [int]:
@@ -26,16 +36,27 @@ class Dbi:
             raise ValueError("Verb level must 1 or greater.")
         if not self.verb >= min_verb:
             return DbiErrors.VerbTooLow
+        if self.debug == False:
+            return DbiErrors.DebugOff
+        _prefix = "[{}][{}]<=[{}] ".format(self._style_verb(self.verb),
+                                          self._style_verb(min_verb),
+                                          self._style_time(now()))
+        final_string = [_prefix]
         for argument in args:
             if type(argument) not in [str]:
                 raise TypeError("Arguments must be strings.")
-            print(argument)
+            if not final_string[-1] == _prefix:
+                final_string.append(self._string_seperator)
+            final_string.append(argument)
+        final_string = ''.join(final_string)
+        print(final_string)
+        return(final_string)
 
 class DbiErrors:
     class VerbTooLow: pass
+    class DebugOff: pass
 
 #dbi = Dbi(3,True)
-
 #dpm = dbi.print_message
 #dpm(3,"hello stranger")
 
