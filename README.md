@@ -1,7 +1,7 @@
 | BRANCH  | BUILD STATUS | COVERAGE | ISSUES | OPEN PRs |
 | ---     | :---:        | :---:    | :---:  | :---:    |
 | Master  | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=master)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/master/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) | [![GitHub issues](https://img.shields.io/github/issues/DrTexxOfficial/dbi.svg?branch=master)](https://GitHub.com/DrTexxOfficial/dbi/issues/) | [![GitHub pull-requests](https://img.shields.io/github/issues-pr/DrTexxOfficial/dbi.svg?branch=master)](https://GitHub.com/DrTexxOfficial/dbi/pull/) |
-| Develop | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=develop)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/develop/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) | [![GitHub issues](https://img.shields.io/github/issues/DrTexxOfficial/dbi.svg?branch=develop)](https://GitHub.com/DrTexxOfficial/dbi/issues/) | [![GitHub pull-requests](https://img.shields.io/github/issues-pr/DrTexxOfficial/dbi.svg?branch=develop)](https://GitHub.com/DrTexxOfficial/dbi/pull/) |
+| Develop | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=develop)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/develop/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) |
 
 # Debug Interface - DBI 
 
@@ -45,8 +45,21 @@ Install requirements:
 - console output is colour-coded (based on verbosity levels)
 
 ## What is the purpose?
-My console had become populated by indecernable walls of debugging text, all thanks to riddling my scripts with lines like ``print(str(var),var)`` for debugging.
+My console had become populated by indecernable walls of debugging text, all thanks to riddling my scripts with lines like `print(str(var),var)` for debugging.
 So I created a module to maintain my sanity and save my time.
+
+## Examples
+Initial config:
+```python3
+from dbi import Dbi
+dbi = Dbi(3,True)
+dpm = dbi.print_message
+```
+Generic example:
+```
+[IN ]: dpm(2,"message with","sub-message")
+[OUT]: [3][2]<=[2018-12-10 01:54:59.845995] message with | sub-message
+```
 
 <br/>
 
