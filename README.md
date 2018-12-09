@@ -1,8 +1,12 @@
-Master branch:
-[![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=master)](https://travis-ci.org/DrTexxOfficial/dbi)
+| BRANCH  | BUILD STATUS | COVERAGE |
+| ---     | ---          | ---      |
+| Master  | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=master)](https://travis-ci.org/DrTexxOfficial/dbi) | [![Coverage Status](https://coveralls.io/repos/github/DrTexxOfficial/dbi/badge.svg?branch=master)](https://coveralls.io/github/DrTexxOfficial/dbi?branch=master) |
+| Develop | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=develop)](https://travis-ci.org/DrTexxOfficial/dbi) | [![Coverage Status](https://coveralls.io/repos/github/DrTexxOfficial/dbi/badge.svg?branch=develop)](https://coveralls.io/github/DrTexxOfficial/dbi?branch=develop) |
+
+Master branch 
 
 Develop branch:
-[![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=develop)](https://travis-ci.org/DrTexxOfficial/dbi)
+
 
 # Debug Interface (dbi)
 
