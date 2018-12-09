@@ -1,5 +1,5 @@
 import pytest
-from dbi import Dbi
+from dbi import Dbi,DbiErrors
 dbi = Dbi(3,True)
 dpm = dbi.print_message
 
@@ -14,6 +14,7 @@ class TestDbi():
             dpm(-1,"hello","chap")
         with pytest.raises(ValueError):
             dpm(0,"mr.","zero")
+        assert dpm(dbi.verb + 1,"outside limit","show nothing!") == DbiErrors.VerbTooLow
     def test_arg_type(self):
         with pytest.raises(TypeError):
             dpm(3,"I'm",45)

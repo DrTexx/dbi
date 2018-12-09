@@ -16,17 +16,23 @@ now = datetime.now
 
 class Dbi:
     def __init__(self,init_verb,init_debug):
-        self._verb = init_verb
-        self._debug = init_debug
+        self.verb = init_verb
+        self.debug = init_debug
     def print_message(self,min_verb,*args): # recommended: Dbi.print_message = dpm
         #min_verb must be an integer
         if type(min_verb) not in [int]:
             raise TypeError("Verb level must be an integer.")
+        if min_verb < 1:
+            raise ValueError("Verb level must 1 or greater.")
+        if not self.verb >= min_verb:
+            return DbiErrors.VerbTooLow
         for argument in args:
             if type(argument) not in [str]:
                 raise TypeError("Arguments must be strings.")
             print(argument)
-            
+
+class DbiErrors:
+    class VerbTooLow: pass
 
 #dbi = Dbi(3,True)
 
