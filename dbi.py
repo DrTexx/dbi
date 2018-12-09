@@ -23,12 +23,12 @@ def dbi(db,min_verb,*args): # define core function
     '''
     In-line functions will fail to execute if they are not accessible within the scope of THIS script.
     Thus if a function is defined in a script that imports this module, the function may not work correctly unless:
-    1 ) the function is incorporated into the code of dbi
-    2 ) the function can be carried over to dbi through [relative module name to import].[function to run] executions
-    3 ) the function becomes incorporated into the code of dbi in the future
-    4 ) an alternative method is found which allows dbi to see other functions in the script which imported it
+    1 ) the function is incorporated into the code of dbifolder
+    2 ) the function can be carried over to dbifolder through [relative module name to import].[function to run] executions
+    3 ) the function becomes incorporated into the code of dbifolder in the future
+    4 ) an alternative method is found which allows dbifolder to see other functions in the script which imported it
     
-    EXAMPLE: dbi(db,2,"RUNNING...","!EXEC!:demo_tools.sf1()","DONE!")
+    EXAMPLE: dbifolder(db,2,"RUNNING...","!EXEC!:demo_tools.sf1()","DONE!")
     If the verbosity_level listed in db is >= 2, then
     1 -> the string "RUNNING..." will be printed to the terminal line, then
     2 -> !EXEC!:demo_tools.sf1 will be split up into parts

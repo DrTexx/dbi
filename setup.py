@@ -6,7 +6,7 @@ https://github.com/pypa/sampleproject
 
 
 
-script_name = 'dbi'
+script_name = 'dbifolder'
 script_requirements = ['colorThis']
 
 
