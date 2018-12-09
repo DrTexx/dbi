@@ -6,8 +6,7 @@ python:
   - "3.7-dev"  # 3.7 development branch
 # coverage preperation
 before_install:
-  - pip install pytest pytest-cov
-  - pip install coveralls
+  - pip install codecov
 # command to install dependencies
 install:
   - pip3 install -r requirements.txt
@@ -16,5 +15,4 @@ script:
   - pytest
 # coverage testing
 after_success:
-  - coveralls
-  
+  - codecov
