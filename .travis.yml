@@ -6,14 +6,14 @@ python:
   - "3.7-dev"  # 3.7 development branch
 # coverage preperation
 before_install:
-  - pip3 install pytest pytest-cov
-  - pip3 install coveralls
+  - pip install pytest pytest-cov
+  - pip install coveralls
 # command to install dependencies
 install:
   - pip3 install -r requirements.txt
 # command to run tests
 script:
-  - py.test
+  - pytest
 # coverage testing
 after_success:
   - coveralls
