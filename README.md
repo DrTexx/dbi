@@ -6,7 +6,7 @@
 # Debug Interface - DBI 
 
 [![PyPI Version](https://img.shields.io/pypi/v/dbi.svg)](https://pypi.python.org/pypi/dbi/)
-[![GitHub release](https://img.shields.io/github/tag/drtexxofficial/dbi.svg)](https://GitHub.com/DrTexxOfficial/dbi/tags/)
+[![GitHub release](https://img.shields.io/github/release/drtexxofficial/dbi.svg)](https://GitHub.com/DrTexxOfficial/dbi/releases/)
 [![GitHub license](https://img.shields.io/github/license/DrTexxOfficial/dbi.svg?branch=master)](https://github.com/DrTexxOfficial/dbi/blob/master/LICENSE)
 [![Github all releases](https://img.shields.io/github/downloads/DrTexxOfficial/dbi/total.svg)](https://GitHub.com/DrTexxOfficial/dbi/releases/)
 
