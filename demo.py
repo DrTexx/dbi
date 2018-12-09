@@ -7,10 +7,15 @@ from dbi import Dbi, DbiErrors
 dbi = Dbi(3,True)
 dpm = dbi.print_message
 
-dpm(1,"some basic debug info.")
-dpm(2,"more advanced debug info.")
-dpm(3,"ridiculous amounts of debug info!")
-dpm(2,"this message has a","sub-message")
+def run_demo():
+    dpm(1,"some basic debug info.")
+    dpm(2,"more advanced debug info.")
+    dpm(3,"ridiculous amounts of debug info!")
+    dpm(2,"this message has a","sub-message")
+
+if __name__ == "__main__":
+    run_demo()
+    
 
 #from dbi.dbi import dbi
 #db = {'debug_active': True,'verbosity_level': 3,'db_imports': ['demo_tools']}
