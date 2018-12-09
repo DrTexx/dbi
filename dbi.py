@@ -1,23 +1,19 @@
 """
-debugging interface module
- script by Denver P.
- Conception: 2017-??:??
- r1: 2018-03-14-??:??
- r2: 2018-03-19-12:00
- r3: 2018-03-19-23:59
- r4: 2018-03-20-09:25
- r5: 2018-03-31-16:10
- r6: 2018-03-31-17:29
- r7: 2018-03-31-17:40
+DBI - Debugging interface module
+Script by Denver P.
+Conception: 2017-??:??
+r1: 2018-03-14-??:??
+r2: 2018-03-19-12:00
+r3: 2018-03-19-23:59
+r4: 2018-03-20-09:25
+r5: 2018-03-31-16:10
+r6: 2018-03-31-17:29
+r7: 2018-03-31-17:40
 """
 
-# import necessary modules
-import datetime
+from datetime import datetime
+now = datetime.now
 from time import sleep
-from colorThis.colorThis import ct # module by myself to adapt colorama to my needs (console colour module)
-
-# set necessary variables
-now = datetime.datetime.now
 
 def dbi(db,min_verb,*args): # define core function
     '''
@@ -39,11 +35,10 @@ def dbi(db,min_verb,*args): # define core function
     
     '''
     print_exec = False
-    if 'print_exec' in db: print_exec = db['print_exec']
     verb = str(db['verbosity_level'])
-    req_verb = min_verb
+    if 'print_exec' in db: print_exec = db['print_exec']
     if 'debug_active' and 'verbosity_level' in db:
-        if(db['debug_active'] and db['verbosity_level'] >= req_verb): print_strings = True # check debug is True and level is okay, set var accordingly
+        if(db['debug_active'] and db['verbosity_level'] >= min_verb): print_strings = True # check debug is True and level is okay, set var accordingly
         else: print_strings = False
     else: raise Exception("passed db dict doesn't contain 'debug_active' and/or 'verbosity_level' key/s")
         
@@ -51,13 +46,13 @@ def dbi(db,min_verb,*args): # define core function
     prefixes = {'1': {'name': "1", 'style': 'GREEN'},
                 '2': {'name': "2", 'style': 'YELLOW'},
                 '3': {'name': "3", 'style': 'RED'}}
-    message_color = prefixes[str(req_verb)]['style']
+    message_color = prefixes[str(min_verb)]['style']
     
     if(print_strings): # if printing strings
         print( # print verb levels and time stamp
             "[%s][%s]<=[%s]: " % ( # format for data using string substitution
                 ct(prefixes[verb]['name'],Fore=prefixes[verb]['style']), # state the parent script's verb level
-                ct(prefixes[str(req_verb)]['name'],Fore=message_color), # state the verb level required to show this message
+                ct(prefixes[str(min_verb)]['name'],Fore=message_color), # state the verb level required to show this message
                 ct(now().isoformat('T'),Fore=message_color)), # write standard time stamp
             end='',flush=True) # stop the print from returning a newline character
     
@@ -141,3 +136,8 @@ if(runThisTest):
 #         print("-",end="")
 #         sys.stdout.flush()
 #         sleep(1.0)
+
+if __name__ == "__main__":
+    print("running script as main...")
+    print("exitting...")
+    
