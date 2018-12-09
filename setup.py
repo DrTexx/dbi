@@ -5,10 +5,8 @@ https://github.com/pypa/sampleproject
 """
 
 
-
-script_name = 'dbifolder'
-script_requirements = ['colorThis']
-
+script_name = 'dbi'
+script_requirements = ['colorama']
 
 
 # Always prefer setuptools over distutils
@@ -20,7 +18,7 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
@@ -46,7 +44,7 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.1.0',  # Required
+    version='1.2.0',  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
@@ -71,7 +69,7 @@ setup(
 
     # This should be your name or the name of the organization which owns the
     # project.
-    author='Denver Pallis',  # Optional
+    author='Denver P',  # Optional
     
     # License isn't default in here? Let's fix that.
     #license='GPLv3+', # Optional
@@ -103,7 +101,7 @@ setup(
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.5',
     ],
 
     # This field adds keywords for your project which will appear on the
