@@ -14,7 +14,7 @@ def run_demo():
     dpm(2,"this message has a","sub-message")
 
 if __name__ == "__main__":
-    run_demo()
+    assert run_demo() == None
     
 
 #from dbi.dbi import dbi
