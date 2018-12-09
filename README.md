@@ -1,7 +1,7 @@
 | BRANCH  | BUILD STATUS | COVERAGE | ISSUES | OPEN PRs |
 | ---     | :---:        | :---:    | :---:  | :---:    |
 | Master  | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=master)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/master/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) | [![GitHub issues](https://img.shields.io/github/issues/DrTexxOfficial/dbi.svg?branch=master)](https://GitHub.com/DrTexxOfficial/dbi/issues/) | [![GitHub pull-requests](https://img.shields.io/github/issues-pr/DrTexxOfficial/dbi.svg?branch=master)](https://GitHub.com/DrTexxOfficial/dbi/pull/) |
-| Develop | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=develop)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/develop/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) | [![GitHub issues](https://img.shields.io/github/issues/DrTexxOfficial/dbi.svg?branch=develop)](https://GitHub.com/DrTexxOfficial/dbi/issues/) | [![GitHub pull-requests](https://img.shields.io/github/issues-pr/DrTexxOfficial/dbi.svg?branch=develop)](https://GitHub.com/DrTexxOfficial/dbi/pull/) |
+| Develop | [![Build Status](https://travis-ci.org/DrTexxOfficial/dbi.svg?branch=develop)](https://travis-ci.org/DrTexxOfficial/dbi) | [![codecov](https://codecov.io/gh/DrTexxOfficial/dbi/branch/develop/graph/badge.svg)](https://codecov.io/gh/DrTexxOfficial/dbi) |
 
 # Debug Interface - DBI 
 
