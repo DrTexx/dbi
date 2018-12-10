@@ -1,4 +1,4 @@
-from source import demo
+from dbi import demo
 
 class TestDemo():
     def test_run_demo(self):
