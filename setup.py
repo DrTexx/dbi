@@ -5,10 +5,10 @@ https://github.com/pypa/sampleproject
 """
 
 
-script_name = 'dbi'
+script_name = 'dbi_script'
 script_requirements = ['colorama==0.4.1']
 readme_filename = 'README.md'
-script_version = '1.2.0'
+script_version = '1.2.1'
 script_description = 'debugging interface module'
 github_username = 'DrTexxOfficial'
 script_author = 'Denver P'
@@ -124,7 +124,7 @@ setup(
     #
     #   py_modules=["my_module"],
     #
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
+    packages=find_packages(where="../",exclude=['contrib', 'docs', 'tests']),  # Required
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
