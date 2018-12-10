@@ -6,7 +6,7 @@ https://github.com/pypa/sampleproject
 
 
 script_name = 'dbi'
-script_requirements = ['colorama==0.4.0']
+script_requirements = ['colorama==0.4.1']
 
 
 # Always prefer setuptools over distutils
