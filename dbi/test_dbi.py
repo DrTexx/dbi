@@ -1,5 +1,5 @@
 import pytest
-from dbi import Dbi,DbiErrors
+from dbi.dbi import Dbi,DbiErrors
 dbi = Dbi(3,True)
 dpm = dbi.print_message
 
