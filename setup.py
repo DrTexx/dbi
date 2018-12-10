@@ -7,6 +7,11 @@ https://github.com/pypa/sampleproject
 
 script_name = 'dbi'
 script_requirements = ['colorama==0.4.1']
+readme_filename = 'README.md'
+script_version = '1.2.0'
+script_description = 'debugging interface module'
+github_username = 'DrTexxOfficial'
+script_author = 'Denver P'
 
 
 # Always prefer setuptools over distutils
@@ -18,7 +23,7 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+with open(path.join(here, readme_filename), encoding='utf-8') as f:
     long_description = f.read()
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
@@ -44,12 +49,12 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.2.0',  # Required
+    version=script_version,  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='debugging interface module',  # Required
+    description=script_description,  # Required
 
     # This is an optional longer description of your project that represents
     # the body of text which users will see when they visit PyPI.
@@ -65,11 +70,11 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url='https://github.com/DrTexxOfficial/{}'.format(script_name),  # Optional
+    url='https://github.com/{}/{}'.format(github_username,script_name),  # Optional
 
     # This should be your name or the name of the organization which owns the
     # project.
-    author='Denver P',  # Optional
+    author=script_author,  # Optional
     
     # License isn't default in here? Let's fix that.
     #license='GPLv3+', # Optional
@@ -181,9 +186,9 @@ setup(
     # maintainers, and where to support the project financially. The key is
     # what's used to render the link text on PyPI.
     project_urls={  # Optional
-        'Bug Reports': 'https://github.com/DrTexxOfficial/{}/issues'.format(script_name),
+        'Bug Reports': 'https://github.com/{}/{}/issues'.format(github_username,script_name),
 #        'Funding': 'https://donate.pypi.org',
 #        'Say Thanks!': 'http://saythanks.io/to/demos',
-        'Source': 'https://github.com/DrTexxOfficial/{}/'.format(script_name),
+        'Source': 'https://github.com/{}/{}/'.format(github_username,script_name),
     },
 )
