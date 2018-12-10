@@ -3,7 +3,7 @@ Created on 19 Mar. 2018
 @author: Denver
 '''
 
-from dbi import Dbi, DbiErrors
+from dbi import Dbi
 dbi = Dbi(3,True)
 dpm = dbi.print_message
 
