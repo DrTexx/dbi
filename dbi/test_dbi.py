@@ -25,5 +25,5 @@ class TestDbi():
         with pytest.raises(TypeError):
             dpm(3,2,"turtle doves and a partridge in a pair tree")
     def test_submessages(self):
-        assert "parent message | sub-message" in dpm(3,"parent message","sub-message")
+        assert "parent message | sub-message" in dpm(3,"parent message","sub-message",return_string=True)
         

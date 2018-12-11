@@ -28,7 +28,7 @@ class Dbi:
         return("{}{}{}".format(self._verb_styles[verb],verb,Style.RESET_ALL))
     def _style_time(self,time):
         return("{}{}{}".format(self._time_style,time,Style.RESET_ALL))
-    def print_message(self,min_verb,*args): # recommended: Dbi.print_message = dpm
+    def print_message(self,min_verb,*args,return_string=False): # recommended: Dbi.print_message = dpm
         #min_verb must be an integer
         if type(min_verb) not in [int]:
             raise TypeError("Verb level must be an integer.")
@@ -50,7 +50,7 @@ class Dbi:
             final_string.append(argument)
         final_string = ''.join(final_string)
         print(final_string)
-        return(final_string)
+        if return_string == True: return(final_string)
 
 class DbiErrors:
     class VerbTooLow: pass
