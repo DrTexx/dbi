@@ -13,7 +13,7 @@ r7: 2018-03-31-17:40
 
 from colorama import Fore,Back,Style
 from datetime import datetime
-now = datetime.now
+_now = datetime.now
 
 class Dbi:
     def __init__(self,init_verb,init_debug):
@@ -40,7 +40,7 @@ class Dbi:
             return DbiErrors.DebugOff
         _prefix = "[{}][{}]<=[{}] ".format(self._style_verb(self.verb),
                                           self._style_verb(min_verb),
-                                          self._style_time(now()))
+                                          self._style_time(_now()))
         final_string = [_prefix]
         for argument in args:
             if type(argument) not in [str]:
