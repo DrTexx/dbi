@@ -11,6 +11,8 @@ r6: 2018-03-31-17:29
 r7: 2018-03-31-17:40
 """
 
+from colorama import init
+init()
 from colorama import Fore,Back,Style
 from datetime import datetime
 _now = datetime.now
