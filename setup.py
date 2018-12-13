@@ -8,7 +8,7 @@ https://github.com/pypa/sampleproject
 script_name = 'dbi'
 script_requirements = ['colorama==0.4.1']
 readme_filename = 'README.md'
-script_version = '1.2.4'
+script_version = '1.2.5'
 script_description = 'debugging interface module'
 github_username = 'DrTexxOfficial'
 script_author = 'Denver P'
